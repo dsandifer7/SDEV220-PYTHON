@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.utils import timezone
 # Create your models here.
 class Car(models.Model):
     Fuel_Type = [
@@ -25,6 +25,7 @@ class Car(models.Model):
     roof_type = models.CharField(max_length=50, choices=Roof_type, default='')
     year = models.SmallIntegerField()
     fuel_type = models.CharField(max_length=50, choices=Fuel_Type, default='')
+    post_created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f"{self.color} {self.make} {self.model}"

@@ -16,12 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from blog import views
+from blog import views as blog_views
+from carapp import views as carapp_views
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index, name='index'),
-    path('body/', views.body, name='body'),
-    path("button/", views.button, name="button"),
-    path('post_list/', views.show_post, name='post_list'),
-    path('myposts/', views.show_post, name='myposts'),
+    path('', blog_views.index, name='index'),
+    path('body/', blog_views.body, name='body'),
+    path("button/", blog_views.button, name="button"),
+    path('post_list/', blog_views.show_post, name='post_list'),
+    path('myposts/', blog_views.show_post, name='myposts'),
+    path('car_list/', carapp_views.car_list, name='car_list'),
 ]
