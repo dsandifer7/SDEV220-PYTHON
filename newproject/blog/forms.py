@@ -1,0 +1,10 @@
+from blog import models
+from django import forms
+from .models import Post
+
+class PostForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = ['post_title', 'post_author', 'post_body']
+        widgets = {
+            'title'
