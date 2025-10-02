@@ -26,4 +26,6 @@ urlpatterns = [
     path('post_list/', blog_views.show_post, name='post_list'),
     path('myposts/', blog_views.show_post, name='myposts'),
     path('car_list/', carapp_views.car_list, name='car_list'),
+    path('add_post/', blog_views.add_post, name='add_post'),
+    path('myposts/<int:id>/', blog_views.find_post, name='postdetail'),
 ]
