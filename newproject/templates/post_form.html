@@ -5,9 +5,10 @@
         <div class="jumbotron text-center" style="background-color: #266b2e; border-radius: 30px; color: white;">
             <h1 class="display-4">Create New Post</h1>
         </div>
+        
         <form method="POST">
             {% csrf_token %}
-            {{blog_form}}
+            {{ blogform }}
             <button type="submit" class="submitform">Submit</button>
             
         </form>

@@ -30,11 +30,25 @@ def add_post(request):
         blogform = PostForm(request.POST)
         if blogform.is_valid():
             blogform.save()
-            return redirect('show_post')
+            return redirect('myposts')
     return render(request, "post_form.html", {"blogform": blogform})
 
 
 def find_post(request, id):
     post = get_object_or_404(Post, id=id)
     return render(request, "postdetail.html", {"post": post})
+
+def update_post(request, id):
+    post = get_object_or_404(Post, id=id)
+    blogform = PostForm(instance=post)
+    if request.method == "POST":
+        blogform = PostForm(request.POST, instance=post)
+        if blogform.is_valid():
+            blogform.save()
+    return render(request, "post_form.html", {"blogform": blogform})
     
+
+def delete_post(request, id):
+    post = get_object_or_404(Post, id=id)
+    post.delete()
+    return redirect('myposts')

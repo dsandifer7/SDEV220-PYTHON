@@ -28,4 +28,6 @@ urlpatterns = [
     path('car_list/', carapp_views.car_list, name='car_list'),
     path('add_post/', blog_views.add_post, name='add_post'),
     path('myposts/<int:id>/', blog_views.find_post, name='postdetail'),
+    path('updateposts/<int:id>/', blog_views.update_post, name='updatepost'),
+    path('deleteposts/<int:id>/', blog_views.delete_post, name='deletepost'),
 ]
