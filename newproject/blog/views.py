@@ -45,6 +45,7 @@ def update_post(request, id):
         blogform = PostForm(request.POST, instance=post)
         if blogform.is_valid():
             blogform.save()
+            return redirect('myposts')
     return render(request, "post_form.html", {"blogform": blogform})
     
 
